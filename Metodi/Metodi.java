@@ -174,8 +174,8 @@ public class Metodi{
                 vettore[cont++]=i;
         return accorcio_lunghezza(vettore,cont);
     }
-    public static int[] dove_elemento(cella vet[],Cella elemento,int inutile){
-        Cella vettore[]=new Cella[vet.length];
+    public static int[] dove_elemento(Cella vet[],Cella elemento,int inutile){
+        int vettore[]=new int[vet.length];
         int cont=0;
         for(int i=0;i<vet.length;i++)
             if(vet[i]==elemento)
@@ -186,7 +186,7 @@ public class Metodi{
     public static int[] rimuovo_elemento_nella_posizione(int vet[],int index){
         int vet1[]=new int[1];
         vet1[0]=index;
-        return rimuovo_elementi(vet,vet1);
+        return rimuovo_elementi_nella_posizione(vet,vet1);
     }
     public static int[] rimuovo_elementi_nella_posizione(int vet[],int index[]){//toglie dal vettore gli elementi nele posizioni dettate da index[]
         int new_vet[]=new int[vet.length-index.length],cont=0;

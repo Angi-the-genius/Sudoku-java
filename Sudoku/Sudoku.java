@@ -8,19 +8,9 @@ import javax.lang.model.util.ElementScanner14;
 import javax.security.auth.SubjectDomainCombiner;
 public class Sudoku {
     public static void main(String args[]) {
-        Scanner tastiera = new Scanner(System.in);
         Sudoku sudoku = new Sudoku(4);
         sudoku.leggo();
         sudoku.risolvo();
-        sudoku.stampo();
-        System.exit(0);
-        sudoku.stampo();
-        if (sudoku.risolvo())
-            System.out.println("Sono riuscito a risolvere il sudoku");
-        else
-            System.out.println("non Sono riuscito a risolvere il sudoku");
-        sudoku.risolvo();
-        System.out.println("ciao");
         sudoku.stampo();
     }
     private int LATO;
@@ -189,7 +179,7 @@ public class Sudoku {
     }
     public int[][] dove_numero(int numero) {// restituisce un vettore vet che in vet[0] ha gli indici delle righe dove si
         // puo inserire numero in vet[1] delle colonne e in vet[2] delle tabelle
-        int vet[][] = new int[3][LATO];
+        int vet[][] = new int[3][0];
         vet[0]=dove_numero_riga(numero);
         vet[1]=dove_numero_colonna(numero);
         vet[2]=dove_numero_tabella(numero);
@@ -306,12 +296,12 @@ public class Sudoku {
             risolvo(0);
         if(x_wing())
             risolvo(0);
-        /*if(colore())
-            risolvo(0);/* */
-     /*    if(xy_wing())
-            risolvo(0);*/
-       /*if(sky_screaper())
-            risolvo(0);*/
+        if(colore())
+            risolvo(0);
+        if(xy_wing())
+            risolvo(0);
+        if(sky_screaper())
+            risolvo(0);
         if(finito()==false)
             System.out.println("Con le tecniche a disposizione non sono in grado di risolvere il sudoku");
         return false;
